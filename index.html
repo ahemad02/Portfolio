@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - ARB</title>
-
+    <link rel="icon" href="./images/A.jpg" type="image/x-icon" />
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -59,12 +59,12 @@
       class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50"
     >
       <img
-        src="./images/logo.png"
+        src="./images/light-logo.png"
         alt="Logo"
         class="w-28 cursor-pointer mr-14 dark:hidden"
       />
       <img
-        src="./images/logo_dark.png"
+        src="./images/dark-logo.png"
         alt="Logo"
         class="w-28 cursor-pointer mr-14 hidden dark:block"
       />
@@ -175,7 +175,7 @@
           <img src="./images/right-arrow-white.png" alt="" class="w-4"
         /></a>
         <a
-          href="./images/logo.png"
+          href="./images/My Resume (11).pdf"
           download
           class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
           >My Resume <img src="./images/download-icon.png" alt="" class="w-4"
@@ -200,7 +200,7 @@
             class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center"
           >
             <img
-              src="./images/circular-text.png"
+              src="./images/fullstack.png"
               alt=""
               class="w-full animate-spin [animation-duration:6s]"
             />
@@ -242,9 +242,11 @@
                 Languages
               </h3>
               <p class="text-gray-600 text-sm dark:text-white/80">
-                HTML, CSS, JavaScript, React, Laravel, NextJS ,Wordpress
+                HTML, CSS, JavaScript,NodeJS,ExpressJS, React, Laravel, NextJS
+                Wordpress
               </p>
             </li>
+
             <li
               class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000] dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
             >
@@ -265,14 +267,17 @@
                 BCA (Bachelor of Computer Application)
               </p>
             </li>
+
             <li
               class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000] dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
             >
-              <img
-                src="./images/project-icon.png"
-                alt=""
-                class="w-7 mt-3 dark:hidden"
-              />
+              <a href="#work">
+                <img
+                  src="./images/project-icon.png"
+                  alt=""
+                  class="w-7 mt-3 dark:hidden"
+                />
+              </a>
               <img
                 src="./images/project-icon-dark.png"
                 alt=""
@@ -352,11 +357,14 @@
           class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
         >
           <img src="./images/mobile-icon.png" alt="" class="w-10" />
-          <h3 class="text-lg my-4 text-gray-700 dark:text-white">Mobile App</h3>
+          <h3 class="text-lg my-4 text-gray-700 dark:text-white">
+            API Development
+          </h3>
           <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-            Web Development is the process of creating and maintaining websites
-            and web applications.
+            I design and build secure, scalable REST and GraphQL APIs for
+            seamless integration between services.
           </p>
+
           <a href="" class="flex items-center gap-2 text-sm mt-5"
             >Read More<img src="./images/right-arrow.png" class="w-4" />
           </a>
@@ -366,12 +374,13 @@
         >
           <img src="./images/ui-icon.png" alt="" class="w-10" />
           <h3 class="text-lg my-4 text-gray-700 dark:text-white">
-            UI/UX Design
+            Backend Development
           </h3>
           <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-            Web Development is the process of creating and maintaining websites
-            and web applications.
+            I develop robust backend systems using Laravel, Node.js, and
+            databases like MySQL & MongoDB.
           </p>
+
           <a href="" class="flex items-center gap-2 text-sm mt-5"
             >Read More<img src="./images/right-arrow.png" class="w-4" />
           </a>
@@ -381,12 +390,13 @@
         >
           <img src="./images/graphics-icon.png" alt="" class="w-10" />
           <h3 class="text-lg my-4 text-gray-700 dark:text-white">
-            Graphics Design
+            Deployment & Hosting
           </h3>
           <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-            Web Development is the process of creating and maintaining websites
-            and web applications.
+            I deploy full-stack apps on platforms like Vercel, Netlify,
+            DigitalOcean, and manage CI/CD pipelines.
           </p>
+
           <a href="" class="flex items-center gap-2 text-sm mt-5"
             >Read More<img src="./images/right-arrow.png" class="w-4" />
           </a>
@@ -414,10 +424,13 @@
           <div
             class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
           >
-            <div>
-              <h2 class="font-semibold">Frontend Project</h2>
-              <p class="text-sm text-gray-700">Web Design</p>
-            </div>
+            <a href="https://edemy-frontend-khaki.vercel.app" target="_blank">
+              <div>
+                <h2 class="font-semibold">FullStack LMS - Edemy</h2>
+                <p class="text-sm text-gray-700">Web Development</p>
+              </div>
+            </a>
+
             <div
               class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
             >
@@ -431,10 +444,12 @@
           <div
             class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
           >
-            <div>
-              <h2 class="font-semibold">Frontend Project</h2>
-              <p class="text-sm text-gray-700">Web Design</p>
-            </div>
+            <a href="https://quick-ai-frontend-drab.vercel.app" target="_blank">
+              <div>
+                <h2 class="font-semibold">FullStack-QuickAI</h2>
+                <p class="text-sm text-gray-700">Web Development</p>
+              </div>
+            </a>
             <div
               class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
             >
@@ -448,10 +463,15 @@
           <div
             class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
           >
-            <div>
-              <h2 class="font-semibold">Frontend Project</h2>
-              <p class="text-sm text-gray-700">Web Design</p>
-            </div>
+            <a
+              href="https://quick-show-frontend-eta.vercel.app"
+              target="_blank"
+            >
+              <div>
+                <h2 class="font-semibold">FullStack-MTB</h2>
+                <p class="text-sm text-gray-700">Web Developement</p>
+              </div>
+            </a>
             <div
               class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
             >
@@ -465,10 +485,15 @@
           <div
             class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
           >
-            <div>
-              <h2 class="font-semibold">Frontend Project</h2>
-              <p class="text-sm text-gray-700">Web Design</p>
-            </div>
+            <a
+              href="https://music-academy-nextjs-kdrd.vercel.app"
+              target="_blank"
+            >
+              <div>
+                <h2 class="font-semibold">Frontend Project</h2>
+                <p class="text-sm text-gray-700">Web Design</p>
+              </div>
+            </a>
             <div
               class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
             >
@@ -479,7 +504,8 @@
       </div>
 
       <a
-        href="#"
+        href="https://github.com/ahemad02?tab=repositories"
+        target="_blank"
         class="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-[#2a004a]"
         >Show More<img
           src="./images/right-arrow-bold.png"
@@ -551,12 +577,12 @@
     <div class="mt-20">
       <div class="text-center">
         <img
-          src="./images/logo.png"
+          src="./images/light-logo.png"
           alt=""
           class="w-36 mx-auto mb-2 dark:hidden"
         />
         <img
-          src="./images/logo_dark.png"
+          src="./images/dark-logo.png"
           alt=""
           class="w-36 mx-auto mb-2 hidden dark:block"
         />
@@ -575,9 +601,21 @@
       >
         <p>© 2025 ARB. All Rights Reserved</p>
         <ul class="flex item-center gap-10 justify-center mt-4 sm:mt-0">
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Github</a></li>
-          <li><a href="#">Twitter</a></li>
+          <li>
+            <a href="https://www.instagram.com/its_ahemad_02" target="_blank"
+              >Instagram</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/ahemad02?tab=repositories"
+              target="_blank"
+              >Github</a
+            >
+          </li>
+          <li>
+            <a href="https://x.com/ahemad_bakali" target="_blank">Twitter</a>
+          </li>
         </ul>
       </div>
     </div>
