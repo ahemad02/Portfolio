@@ -7,6 +7,11 @@
     <link rel="icon" href="./images/A.jpg" type="image/x-icon" />
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <script>
       tailwind.config = {
         darkMode: "class",
@@ -43,6 +48,57 @@
       .myclass h3 {
         font-family: "Ovo", serif;
       }
+      .nav-link {
+        position: relative;
+        display: inline-block;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0%;
+        height: 2px;
+        background-color: currentColor;
+        transition: width 0.35s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* Center pagination nicely */
+      .swiper-pagination {
+        position: relative !important;
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      /* Dot base style */
+      .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background: #1e1e1e;
+        opacity: 1;
+        margin: 0 6px !important;
+        transition: all 0.3s ease;
+      }
+
+      /* Active dot */
+      .swiper-pagination-bullet-active {
+        width: 26px;
+        border-radius: 20px;
+        background: #b7ff4a; /* neon green like your arrow */
+        box-shadow: 0 0 12px rgba(183, 255, 74, 0.8);
+      }
+      .dark .swiper-pagination-bullet {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .dark .swiper-pagination-bullet-active {
+        background: #b7ff4a;
+      }
     </style>
   </head>
 
@@ -56,7 +112,8 @@
     </div>
 
     <nav
-      class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50"
+      id="mainHeader"
+      class="w-full fixed top-0 px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 transition-transform duration-300 ease-in-out"
     >
       <img
         src="./images/light-logo.png"
@@ -72,12 +129,12 @@
         class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent"
       >
         <li>
-          <a href="#top">Home</a>
+          <a href="#top" class="nav-link">Home</a>
         </li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">My Work</a></li>
-        <li><a href="#contact">Contact Me</a></li>
+        <li><a href="#about" class="nav-link">About Me</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#work" class="nav-link">My Work</a></li>
+        <li><a href="#contact" class="nav-link">Contact Me</a></li>
       </ul>
 
       <div class="flex items-center gap-4">
@@ -416,108 +473,240 @@
         developer.
       </p>
 
-      <div
-        class="grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] my-10 gap-5 dark:text-black"
-      >
-        <div
-          class="aspect-square bg-[url('./images/LMS.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-        >
-          <div
-            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
-          >
-            <a href="https://edemy-frontend-khaki.vercel.app" target="_blank">
-              <div>
-                <h2 class="font-semibold">FullStack-Edemy</h2>
-                <p class="text-sm text-gray-700">Web Development</p>
-              </div>
-            </a>
-
-            <div
-              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
-            >
-              <img src="./images/send-icon.png" alt="" class="w-5" />
-            </div>
-          </div>
-        </div>
-        <div
-          class="aspect-square bg-[url('./images/work-2.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-        >
-          <div
-            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
-          >
-            <a href="https://quick-ai-frontend-drab.vercel.app" target="_blank">
-              <div>
-                <h2
-                  class="font-semibold text-base md:text-lg truncate max-w-[140px]"
+      <div class="relative my-10">
+        <div class="swiper myWorkSwiper">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <a href="https://edemy-frontend-khaki.vercel.app" target="_blank">
+                <div
+                  class="aspect-square bg-[url('./images/LMS.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
                 >
-                  FullStack-QuickAI
-                </h2>
-                <p class="text-sm text-gray-700">Web Development</p>
-              </div>
-            </a>
-            <div
-              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
-            >
-              <img src="./images/send-icon.png" alt="" class="w-5" />
+                  <!-- TEXT BLOCK (RESTORED) -->
+                  <div
+                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
+                  >
+                    <div>
+                      <h2 class="font-semibold">Edemy-LMS Website</h2>
+                      <p class="text-sm text-gray-700 dark:text-gray-300">
+                        Web Development
+                      </p>
+                    </div>
+
+                    <div
+                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
+                    >
+                      <img src="./images/send-icon.png" alt="" class="w-5" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <a
+                href="https://quick-ai-frontend-drab.vercel.app"
+                target="_blank"
+              >
+                <div
+                  class="aspect-square bg-[url('./images/work-2.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
+                >
+                  <!-- TEXT BLOCK (RESTORED) -->
+                  <div
+                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
+                  >
+                    <div>
+                      <h2 class="font-semibold">QuickAI-Your AI Assistant</h2>
+                      <p class="text-sm text-gray-700 dark:text-gray-300">
+                        Web Development
+                      </p>
+                    </div>
+
+                    <div
+                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
+                    >
+                      <img src="./images/send-icon.png" alt="" class="w-5" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <a
+                href="https://quick-show-frontend-eta.vercel.app"
+                target="_blank"
+              >
+                <div
+                  class="aspect-square bg-[url('./images/QUICKSHOW.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
+                >
+                  <!-- TEXT BLOCK (RESTORED) -->
+                  <div
+                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
+                  >
+                    <div>
+                      <h2 class="font-semibold">QuickShow-Movie Ticket</h2>
+                      <p class="text-sm text-gray-700 dark:text-gray-300">
+                        Web Development
+                      </p>
+                    </div>
+
+                    <div
+                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
+                    >
+                      <img src="./images/send-icon.png" alt="" class="w-5" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Slide 4 -->
+            <div class="swiper-slide">
+              <a
+                href="https://music-academy-nextjs-kdrd.vercel.app"
+                target="_blank"
+              >
+                <div
+                  class="aspect-square bg-[url('./images/music.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
+                >
+                  <!-- TEXT BLOCK (RESTORED) -->
+                  <div
+                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
+                  >
+                    <div>
+                      <h2 class="font-semibold">Music Academy - School</h2>
+                      <p class="text-sm text-gray-700 dark:text-gray-300">
+                        Web Development
+                      </p>
+                    </div>
+
+                    <div
+                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
+                    >
+                      <img src="./images/send-icon.png" alt="" class="w-5" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Slide 5 -->
+            <div class="swiper-slide">
+              <a
+                href="https://next-js-ecommerce-khaki.vercel.app"
+                target="_blank"
+              >
+                <div
+                  class="aspect-square bg-[url('./images/ecommerce.jpg')] bg-no-repeat bg-cover bg-left rounded-lg relative cursor-pointer group"
+                >
+                  <!-- TEXT BLOCK (RESTORED) -->
+                  <div
+                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
+                  >
+                    <div>
+                      <h2 class="font-semibold">NextJS - Ecommerce</h2>
+                      <p class="text-sm text-gray-700 dark:text-gray-300">
+                        Web Development
+                      </p>
+                    </div>
+
+                    <div
+                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
+                    >
+                      <img src="./images/send-icon.png" alt="" class="w-5" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Slide 6 -->
+            <div class="swiper-slide">
+              <a href="https://royal-react-frontend.vercel.app" target="_blank">
+                <div
+                  class="aspect-square bg-[url('./images/FlexoTechNatural.jpg')] bg-no-repeat bg-cover bg-left rounded-lg relative cursor-pointer group"
+                >
+                  <!-- TEXT BLOCK (RESTORED) -->
+                  <div
+                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
+                  >
+                    <div>
+                      <h2 class="font-semibold">Royal React - Tiles</h2>
+                      <p class="text-sm text-gray-700 dark:text-gray-300">
+                        Web Development
+                      </p>
+                    </div>
+
+                    <div
+                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
+                    >
+                      <img src="./images/send-icon.png" alt="" class="w-5" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Slide 7 -->
+            <div class="swiper-slide">
+              <a
+                href="https://chat-app-frontend-six-phi.vercel.app"
+                target="_blank"
+              >
+                <div
+                  class="aspect-square bg-[url('./images/chat.jpg')] bg-no-repeat bg-cover bg-left rounded-lg relative cursor-pointer group"
+                >
+                  <!-- TEXT BLOCK (RESTORED) -->
+                  <div
+                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
+                  >
+                    <div>
+                      <h2 class="font-semibold">Chat App - Real Time</h2>
+                      <p class="text-sm text-gray-700 dark:text-gray-300">
+                        Web Development
+                      </p>
+                    </div>
+
+                    <div
+                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
+                    >
+                      <img src="./images/send-icon.png" alt="" class="w-5" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Slide 8 -->
+            <div class="swiper-slide">
+              <a href="https://award-site-nine.vercel.app" target="_blank">
+                <div
+                  class="aspect-square bg-[url('./images/awards.jpg')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
+                >
+                  <!-- TEXT BLOCK (RESTORED) -->
+                  <div
+                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
+                  >
+                    <div>
+                      <h2 class="font-semibold">Award Site - React</h2>
+                      <p class="text-sm text-gray-700 dark:text-gray-300">
+                        Web Development
+                      </p>
+                    </div>
+
+                    <div
+                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
+                    >
+                      <img src="./images/send-icon.png" alt="" class="w-5" />
+                    </div>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
-        </div>
-        <div
-          class="aspect-square bg-[url('./images/QUICKSHOW.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-        >
-          <div
-            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
-          >
-            <a
-              href="https://quick-show-frontend-eta.vercel.app"
-              target="_blank"
-            >
-              <div>
-                <h2 class="font-semibold">FullStack-MTB</h2>
-                <p class="text-sm text-gray-700">Web Developement</p>
-              </div>
-            </a>
-            <div
-              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
-            >
-              <img src="./images/send-icon.png" alt="" class="w-5" />
-            </div>
-          </div>
-        </div>
-        <div
-          class="aspect-square bg-[url('./images/music.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-        >
-          <div
-            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
-          >
-            <a
-              href="https://music-academy-nextjs-kdrd.vercel.app"
-              target="_blank"
-            >
-              <div>
-                <h2 class="font-semibold">Frontend Project</h2>
-                <p class="text-sm text-gray-700">Web Design</p>
-              </div>
-            </a>
-            <div
-              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
-            >
-              <img src="./images/send-icon.png" alt="" class="w-5" />
-            </div>
-          </div>
+
+          <!-- Navigation -->
+          <div class="swiper-pagination mt-8"></div>
         </div>
       </div>
-
-      <a
-        href="https://github.com/ahemad02?tab=repositories"
-        target="_blank"
-        class="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-[#2a004a]"
-        >Show More<img
-          src="./images/right-arrow-bold.png"
-          class="w-4 dark:hidden" /><img
-          src="./images/right-arrow-bold-dark.png"
-          class="w-4 hidden dark:block"
-      /></a>
     </div>
 
     <!-- ---contact--- -->
@@ -624,6 +813,8 @@
         </ul>
       </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="./script.js"></script>
   </body>
