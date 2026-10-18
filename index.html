@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,976 +10,523 @@
     <title>
       Ahemad Bakali | Full Stack Developer in Ahmedabad (Laravel, React)
     </title>
-    <link rel="icon" href="./images/A.jpg" type="image/x-icon" />
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    <meta name="theme-color" content="#0b0b0c" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ahemad Bakali — Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Full Stack Developer in Ahmedabad building scalable web apps with Laravel, React, Node.js and Next.js."
     />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0b0c'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='38' fill='%23c8ff3d'%3EA%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="apple-touch-icon" href="./images/opt/apple-touch-icon.png" />
 
+    <!-- Apply the saved theme before first paint (no flash) -->
     <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            fontFamily: {
-              Outfit: ["Outfit", "sans-serif"],
-              Ovo: ["Ovo", "serif"],
-            },
-            colors: {
-              darkTheme: "#11001F",
-              darkHover: "#2a004a",
-              lightHover: "#fcf4ff",
-            },
-          },
-        },
-      };
+      try {
+        if (localStorage.getItem("theme") === "light") {
+          document.documentElement.dataset.theme = "light";
+        }
+      } catch (e) {}
     </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <style>
-      body {
-        font-family: "Outfit", sans-serif;
-      }
-      nav ul {
-        font-family: "Ovo", serif;
-      }
-      .myclass h3 {
-        font-family: "Ovo", serif;
-      }
-      .nav-link {
-        position: relative;
-        display: inline-block;
-      }
+    <link rel="stylesheet" href="./style.css" />
 
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        width: 0%;
-        height: 2px;
-        background-color: currentColor;
-        transition: width 0.35s ease;
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ahemad Raza Bakali",
+        "alternateName": "Ahemad Bakali",
+        "jobTitle": "Full Stack Developer",
+        "email": "mailto:ahemadbakali26@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ahmedabad",
+          "addressRegion": "Gujarat",
+          "addressCountry": "IN"
+        },
+        "knowsAbout": ["Laravel", "React", "Node.js", "Express", "Next.js", "WordPress", "MongoDB", "MySQL"],
+        "sameAs": [
+          "https://github.com/ahemad02",
+          "https://www.instagram.com/its_ahemad_02",
+          "https://x.com/ahemad_bakali"
+        ]
       }
-
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
-      /* Center pagination nicely */
-      .swiper-pagination {
-        position: relative !important;
-        margin-top: 30px;
-        text-align: center;
-      }
-
-      /* Dot base style */
-      .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
-        background: #1e1e1e;
-        opacity: 1;
-        margin: 0 6px !important;
-        transition: all 0.3s ease;
-      }
-
-      /* Active dot */
-      .swiper-pagination-bullet-active {
-        width: 26px;
-        border-radius: 20px;
-        background: #b7ff4a; /* neon green like your arrow */
-        box-shadow: 0 0 12px rgba(183, 255, 74, 0.8);
-      }
-      .dark .swiper-pagination-bullet {
-        background: rgba(255, 255, 255, 0.3);
-      }
-
-      .dark .swiper-pagination-bullet-active {
-        background: #b7ff4a;
-      }
-    </style>
+    </script>
   </head>
 
-  <body
-    class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white"
-  >
-    <div
-      class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden"
-    >
-      <img src="./images/header-bg-color.png" alt="" class="w-full" />
+  <body>
+    <a class="skip-link" href="#about">Skip to content</a>
+
+    <!-- ===== Preloader ===== -->
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader__name">
+        <span class="loader__line">Ahemad</span>
+        <span class="loader__line loader__line--serif">Bakali</span>
+      </div>
+      <div class="loader__foot">
+        <span class="mono">Portfolio — ©<span data-year>2025</span></span>
+        <span class="loader__count"><span id="loaderCount">0</span>%</span>
+      </div>
+      <div class="loader__bar"><span></span></div>
+      <div class="loader__accent"></div>
     </div>
 
-    <nav
-      id="mainHeader"
-      class="w-full fixed top-0 px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 transition-transform duration-300 ease-in-out"
-    >
-      <img
-        src="./images/light-logo.png"
-        alt="Logo"
-        class="w-28 cursor-pointer mr-14 dark:hidden"
-      />
-      <img
-        src="./images/dark-logo.png"
-        alt="Logo"
-        class="w-28 cursor-pointer mr-14 hidden dark:block"
-      />
-      <ul
-        class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent"
-      >
-        <li>
-          <a href="#top" class="nav-link">Home</a>
-        </li>
-        <li><a href="#about" class="nav-link">About Me</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#work" class="nav-link">My Work</a></li>
-        <li><a href="#contact" class="nav-link">Contact Me</a></li>
-      </ul>
+    <!-- ===== Custom cursor (desktop only) ===== -->
+    <div class="cursor" aria-hidden="true">
+      <div class="cursor__ring"><div class="cursor__ring-inner"><span class="cursor__label">View</span></div></div>
+      <div class="cursor__dot"><div class="cursor__dot-inner"></div></div>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><span></span></div>
 
-      <div class="flex items-center gap-4">
-        <button onclick="toggleTheme()">
-          <img
-            src="./images/moon_icon.png"
-            alt="Moon"
-            class="w-6 dark:hidden"
-          />
-          <img
-            src="./images/sun_icon.png"
-            alt="Moon"
-            class="w-6 hidden dark:block"
-          />
+    <!-- ===== Navigation ===== -->
+    <header class="nav" id="nav">
+      <a href="#top" class="nav__logo" data-magnetic="0.3" aria-label="Ahemad Bakali — home">ARB<span>.</span></a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about" data-scramble data-nav="about"><sup>01</sup>About</a>
+        <a href="#services" data-scramble data-nav="services"><sup>02</sup>Services</a>
+        <a href="#work" data-scramble data-nav="work"><sup>03</sup>Work</a>
+        <a href="#contact" data-scramble data-nav="contact"><sup>04</sup>Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme" data-magnetic="0.4">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" /><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8" /></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" /></svg>
         </button>
-
-        <a
-          href="#contact"
-          class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 dark:border-white/50"
-          >Contact
-          <img
-            src="./images/arrow-icon.png"
-            alt="Arrow"
-            class="w-3 dark:hidden"
-          />
-          <img
-            src="./images/arrow-icon-dark.png"
-            alt="Arrow"
-            class="w-3 hidden dark:block"
-          />
+        <a href="#contact" class="btn btn--small nav__cta" data-magnetic="0.25">
+          <span class="btn__label">Let's talk</span>
+          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
         </a>
-
-        <button class="block md:hidden ml-3" onclick="openMenu()">
-          <img src="./images/menu-black.png" alt="" class="w-6 dark:hidden" />
-          <img
-            src="./images/menu-white.png"
-            alt=""
-            class="w-6 hidden dark:block"
-          />
+        <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+          <span></span><span></span>
         </button>
       </div>
+    </header>
 
-      <!-- ---- mobile menu ---- -->
-
-      <ul
-        id="sidemenu"
-        class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 dark:bg-[#2a004a] dark:text-white"
-      >
-        <div class="absolute right-6 top-6" onclick="closeMenu()">
-          <img
-            src="./images/close-black.png"
-            alt=""
-            class="w-5 cursor-pointer dark:hidden"
-          />
-          <img
-            src="./images/close-white.png"
-            alt=""
-            class="w-5 cursor-pointer hidden dark:block"
-          />
-        </div>
-
-        <li>
-          <a href="#top" onclick="closeMenu()">Home</a>
-        </li>
-        <li><a href="#about" onclick="closeMenu()">About Me</a></li>
-        <li><a href="#services" onclick="closeMenu()">Services</a></li>
-        <li><a href="#work" onclick="closeMenu()">My Work</a></li>
-        <li><a href="#contact" onclick="closeMenu()">Contact Me</a></li>
-      </ul>
-    </nav>
-
-    <!-- ----header---- -->
-
-    <div
-      class="w-11/12 max-w-3xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 myclass pt-32"
-    >
-      <img src="./images/myphoto1.jpeg" alt="" class="rounded-full w-32" />
-      <h3 class="flex items-center gap-2 text-xl md:text-2xl mb-3 font-ovo">
-        Hi! I'm Ahemad Raza
-        <img src="./images/hand-icon.png" alt="" class="w-6" />
-      </h3>
-      <h1>Full Stack Developer in Ahmedabad – Ahemad Bakali</h1>
-      <p class="max-w-2xl mx-auto">
-        I'm a Full Stack Web Developer with a passion for creating beautiful and
-        functional websites.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
-        <a
-          href="#contact"
-          class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent"
-          >Contact Me
-          <img src="./images/right-arrow-white.png" alt="" class="w-4"
-        /></a>
-        <a
-          href="./images/Resume.pdf"
-          download
-          class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
-          >My Resume <img src="./images/download-icon.png" alt="" class="w-4"
-        /></a>
-      </div>
-    </div>
-
-    <!-- ----about me---- -->
-
-    <div
-      id="about"
-      class="w-full py-10 scroll-mt-20 px-6 sm:px-10 lg:px-16 xl:px-0 max-w-6xl mx-auto"
-    >
-      <h4 class="text-center mb-2 text-lg">Introduction</h4>
-      <h2 class="text-center text-5xl">About Me</h2>
-      <div
-        class="flex w-full flex-col lg:flex-row items-center gap-12 xl:gap-20 my-20"
-      >
-        <div class="relative mx-auto lg:mx-0 shrink-0">
-          <img
-            src="./images/1000134510.png"
-            alt=""
-            class="w-64 sm:w-80 min-h-[500px] object-cover rounded-3xl max-w-none"
-          />
-
-          <div
-            class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center"
-          >
-            <img
-              src="./images/fullstack.png"
-              alt=""
-              class="w-full animate-spin [animation-duration:6s]"
-            />
-            <img
-              src="./images/dev-icon.png"
-              alt=""
-              class="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            />
-          </div>
-        </div>
-        <div class="flex-1 max-w-2xl">
-          <p class="mb-10 max-w-2xl mt-10">
-            I'm a Full Stack Web Developer with a passion for creating beautiful
-            and functional websites. I have experience in building responsive
-            and user-friendly interfaces using HTML, CSS, and JavaScript. I also
-            have experience in working with popular frameworks such as
-            React,Node,Express, Laravel, and Wordpress. I'm constantly learning
-            and staying up-to-date with the latest web development trends and
-            technologies.
-          </p>
-          <ul
-            class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-6 max-w-3xl"
-          >
-            <li
-              class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000] dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
-            >
-              <img
-                src="./images/code-icon.png"
-                alt=""
-                class="w-7 mt-3 dark:hidden"
-              />
-
-              <img
-                src="./images/code-icon-dark.png"
-                alt=""
-                class="w-7 mt-3 hidden dark:block"
-              />
-
-              <h3 class="my-4 font-semibold text-gray-700 dark:text-white">
-                Languages
-              </h3>
-              <p class="text-gray-600 text-sm dark:text-white/80 break-words">
-                HTML, CSS, JavaScript,NodeJS,ExpressJS, React, Laravel, NextJS ,
-                Wordpress
-              </p>
-            </li>
-
-            <li
-              class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000] dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
-            >
-              <img
-                src="./images/edu-icon.png"
-                alt=""
-                class="w-7 mt-3 dark:hidden"
-              />
-              <img
-                src="./images/edu-icon-dark.png"
-                alt=""
-                class="w-7 mt-3 hidden dark:block"
-              />
-              <h3 class="my-4 font-semibold text-gray-700 dark:text-white">
-                Education
-              </h3>
-              <p class="text-gray-600 text-sm dark:text-white/80">
-                BCA (Bachelor of Computer Application)
-              </p>
-            </li>
-
-            <li
-              class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000] dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
-            >
-              <a href="#work">
-                <img
-                  src="./images/project-icon.png"
-                  alt=""
-                  class="w-7 mt-3 dark:hidden"
-                />
-              </a>
-              <img
-                src="./images/project-icon-dark.png"
-                alt=""
-                class="w-7 mt-3 hidden dark:block"
-              />
-              <h3 class="my-4 font-semibold text-gray-700 dark:text-white">
-                Projects
-              </h3>
-              <p class="text-gray-600 text-sm dark:text-white/80">
-                Built Some Amazing Projects
-              </p>
-            </li>
-          </ul>
-
-          <h4 class="my-6 text-gray-700 dark:text-white/80">Tools i use</h4>
-
-          <ul class="flex items-center justify-start sm:gap-5">
-            <li
-              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
-            >
-              <img src="./images/vscode.png" alt="" class="w-5 sm:w-7" />
-            </li>
-            <li
-              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
-            >
-              <img src="./images/mongodb.png" alt="" class="w-5 sm:w-7" />
-            </li>
-            <li
-              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
-            >
-              <img src="./images/figma.png" alt="" class="w-5 sm:w-7" />
-            </li>
-            <li
-              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
-            >
-              <img src="./images/git.png" alt="" class="w-5 sm:w-7" />
-            </li>
-          </ul>
+    <!-- ===== Mobile menu ===== -->
+    <div class="menu" id="menu" aria-hidden="true">
+      <nav class="menu__links" aria-label="Mobile">
+        <a href="#top" style="--i: 0"><sup>00</sup>Home</a>
+        <a href="#about" style="--i: 1"><sup>01</sup>About</a>
+        <a href="#services" style="--i: 2"><sup>02</sup>Services</a>
+        <a href="#work" style="--i: 3"><sup>03</sup>Work</a>
+        <a href="#contact" style="--i: 4"><sup>04</sup>Contact</a>
+      </nav>
+      <div class="menu__foot">
+        <a href="mailto:ahemadbakali26@gmail.com">ahemadbakali26@gmail.com</a>
+        <div class="menu__social">
+          <a href="https://www.instagram.com/its_ahemad_02" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://github.com/ahemad02?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://x.com/ahemad_bakali" target="_blank" rel="noopener">Twitter</a>
         </div>
       </div>
     </div>
 
-    <!-- ---services--- -->
+    <main id="top">
+      <!-- ===== Hero ===== -->
+      <section class="hero" id="hero">
+        <div class="hero__glow" aria-hidden="true"></div>
 
-    <div id="services" class="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 class="text-center mb-2 text-lg">What I Offer</h4>
-      <h2 class="text-center text-5xl">My Services</h2>
-      <p class="text-center max-w-2xl mx-auto mt-5 mb-12">
-        I'm a Full Stack Web Developer with a passion for creating beautiful and
-        functional websites.
-      </p>
-
-      <div
-        class="grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-6 my-10"
-      >
-        <div
-          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
-        >
-          <img src="./images/web-icon.png" alt="" class="w-10" />
-          <h3 class="text-lg my-4 text-gray-700 dark:text-white">
-            Web Development
-          </h3>
-          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-            Web Development is the process of creating and maintaining websites
-            and web applications.
-          </p>
-          <a href="" class="flex items-center gap-2 text-sm mt-5"
-            >Read More<img src="./images/right-arrow.png" class="w-4" />
-          </a>
+        <div class="hero__meta">
+          <span class="status"><i></i><span class="status__long">Available for freelance &amp; remote work</span><span class="status__short">Available for work</span></span>
+          <span class="mono hero__clock"><span class="hide-sm">Ahmedabad, IN — </span><time id="clock">--:--</time> IST</span>
         </div>
-        <div
-          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
-        >
-          <img src="./images/mobile-icon.png" alt="" class="w-10" />
-          <h3 class="text-lg my-4 text-gray-700 dark:text-white">
-            API Development
-          </h3>
-          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-            I design and build secure, scalable REST and GraphQL APIs for
-            seamless integration between services.
-          </p>
 
-          <a href="" class="flex items-center gap-2 text-sm mt-5"
-            >Read More<img src="./images/right-arrow.png" class="w-4" />
-          </a>
+        <div class="hero__portrait" id="portrait" aria-hidden="true">
+          <canvas></canvas>
         </div>
-        <div
-          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
-        >
-          <img src="./images/ui-icon.png" alt="" class="w-10" />
-          <h3 class="text-lg my-4 text-gray-700 dark:text-white">
-            Backend Development
-          </h3>
-          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-            I develop robust backend systems using Laravel, Node.js, and
-            databases like MySQL & MongoDB.
+
+        <div class="hero__content">
+          <p class="hero__hello">
+            <img src="./images/hand-icon.png" alt="" width="24" height="24" class="wave" />
+            Hi! I'm Ahemad Raza
           </p>
-
-          <a href="" class="flex items-center gap-2 text-sm mt-5"
-            >Read More<img src="./images/right-arrow.png" class="w-4" />
-          </a>
-        </div>
-        <div
-          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white"
-        >
-          <img src="./images/graphics-icon.png" alt="" class="w-10" />
-          <h3 class="text-lg my-4 text-gray-700 dark:text-white">
-            Deployment & Hosting
-          </h3>
-          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
-            I deploy full-stack apps on platforms like Vercel, Netlify,
-            DigitalOcean, and manage CI/CD pipelines.
-          </p>
-
-          <a href="" class="flex items-center gap-2 text-sm mt-5"
-            >Read More<img src="./images/right-arrow.png" class="w-4" />
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ---my work --- -->
-
-    <div id="work" class="w-full px-10 py-10 scroll-mt-20">
-      <h4 class="text-center mb-2 text-lg">My Portfolio</h4>
-      <h2 class="text-center text-5xl">My Latest Work</h2>
-      <p class="text-center max-w-2xl mx-auto mt-5 mb-12">
-        Welcome to my portfolio! Here you'll find a collection of my latest
-        projects and works that showcase my skills and experience as a web
-        developer.
-      </p>
-
-      <div class="relative my-10">
-        <div class="swiper myWorkSwiper">
-          <div class="swiper-wrapper">
-            <!-- Slide 1 -->
-            <div class="swiper-slide">
-              <a href="https://edemy-frontend-khaki.vercel.app" target="_blank">
-                <div
-                  class="aspect-square bg-[url('./images/LMS.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">Edemy-LMS Website</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
+          <h1 class="hero__title">
+            <span class="line"><span class="word">Ahemad</span></span>
+            <span class="line"><span class="word word--outline">Bakali</span></span>
+            <span class="sr-only"> — Full Stack Developer in Ahmedabad</span>
+          </h1>
+          <div class="hero__bottom">
+            <p class="hero__sub">
+              Full stack developer in Ahmedabad with a passion for creating beautiful, functional
+              <span class="rotator" aria-hidden="true"><span class="is-active">web apps.</span><span>Laravel backends.</span><span>React interfaces.</span><span>REST APIs.</span></span>
+              <span class="sr-only">web apps, Laravel backends, React interfaces and REST APIs.</span>
+            </p>
+            <div class="hero__ctas">
+              <a href="#contact" class="btn btn--accent" data-magnetic="0.3">
+                <span class="btn__label">Contact me</span>
+                <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
               </a>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="swiper-slide">
-              <a
-                href="https://quick-ai-frontend-drab.vercel.app"
-                target="_blank"
-              >
-                <div
-                  class="aspect-square bg-[url('./images/work-2.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">QuickAI-Your AI Assistant</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="swiper-slide">
-              <a
-                href="https://quick-show-frontend-eta.vercel.app"
-                target="_blank"
-              >
-                <div
-                  class="aspect-square bg-[url('./images/QUICKSHOW.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">QuickShow-Movie Ticket</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 4 -->
-            <div class="swiper-slide">
-              <a
-                href="https://music-academy-nextjs-kdrd.vercel.app"
-                target="_blank"
-              >
-                <div
-                  class="aspect-square bg-[url('./images/music.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">Music Academy - School</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 5 -->
-            <div class="swiper-slide">
-              <a
-                href="https://next-js-ecommerce-khaki.vercel.app"
-                target="_blank"
-              >
-                <div
-                  class="aspect-square bg-[url('./images/ecommerce.webp')] bg-no-repeat bg-cover bg-left rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">NextJS - Ecommerce</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 6 -->
-            <div class="swiper-slide">
-              <a href="https://pure-wear.vercel.app" target="_blank">
-                <div
-                  class="aspect-square bg-[url('./images/purewear.png')] bg-no-repeat bg-cover bg-left rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">Pure Wear - Ecommerce</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 7 -->
-            <div class="swiper-slide">
-              <a
-                href="https://chat-app-frontend-six-phi.vercel.app"
-                target="_blank"
-              >
-                <div
-                  class="aspect-square bg-[url('./images/chat.jpg')] bg-no-repeat bg-cover bg-left rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">Chat App - Real Time</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!--slide 9 -->
-
-            <div class="swiper-slide">
-              <a href="https://site-builder-5eq9.vercel.app" target="_blank">
-                <div
-                  class="aspect-square bg-[url('./images/sitebuilder.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">
-                        Site Builder - AI Site Builder
-                      </h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Slide 8 -->
-            <div class="swiper-slide">
-              <a href="https://award-site-nine.vercel.app" target="_blank">
-                <div
-                  class="aspect-square bg-[url('./images/awards.jpg')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">Award Site - React</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="swiper-slide">
-              <a href="https://sipnbite.in" target="_blank">
-                <div
-                  class="aspect-square bg-[url('./images/sipnbite.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">Sipnbite - Wordpress</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="swiper-slide">
-              <a href="https://thetreehouseahmedabad.in" target="_blank">
-                <div
-                  class="aspect-square bg-[url('./images/treehouse.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">The Tree House - Wordpress</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="swiper-slide">
-              <a href="https://rocagressurfaces.com" target="_blank">
-                <div
-                  class="aspect-square bg-[url('./images/rocagres.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">Rocagress - Wordpress</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="swiper-slide">
-              <a href="https://levoxinfotech.com" target="_blank">
-                <div
-                  class="aspect-square bg-[url('./images/levox.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">Levox Infotech - Wordpress</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="swiper-slide">
-              <a href="https://cumincosmetics.com" target="_blank">
-                <div
-                  class="aspect-square bg-[url('./images/cumin.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-                >
-                  <!-- TEXT BLOCK (RESTORED) -->
-                  <div
-                    class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 dark:bg-black/80"
-                  >
-                    <div>
-                      <h2 class="font-semibold">Cumincosmetics - Wordpress</h2>
-                      <p class="text-sm text-gray-700 dark:text-gray-300">
-                        Web Development
-                      </p>
-                    </div>
-
-                    <div
-                      class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] bg-lime-300 transition dark:border-white"
-                    >
-                      <img src="./images/send-icon.png" alt="" class="w-5" />
-                    </div>
-                  </div>
-                </div>
+              <a href="./images/ARB_Resume.pdf" download class="btn btn--ghost" data-magnetic="0.3">
+                <span class="btn__label">My résumé</span>
+                <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M5 20h14" /></svg>
               </a>
             </div>
           </div>
-
-          <!-- Navigation -->
-          <div class="swiper-pagination mt-8"></div>
         </div>
+
+        <span class="hero__hint mono" aria-hidden="true">Move &amp; click the portrait</span>
+        <a href="#about" class="hero__scroll mono" aria-label="Scroll to About section"><span>Scroll</span><i></i></a>
+      </section>
+
+      <!-- ===== Marquee tapes ===== -->
+      <section class="tapes" aria-label="Technologies">
+        <div class="tape tape--accent">
+          <div class="tape__inner">
+            <span>Laravel</span><b>✦</b><span>React</span><b>✦</b><span>Node.js</span><b>✦</b><span>Express</span><b>✦</b><span>Next.js</span><b>✦</b><span>MongoDB</span><b>✦</b><span>MySQL</span><b>✦</b><span>WordPress</span><b>✦</b><span>JavaScript</span><b>✦</b>
+            <span aria-hidden="true">Laravel</span><b>✦</b><span aria-hidden="true">React</span><b>✦</b><span aria-hidden="true">Node.js</span><b>✦</b><span aria-hidden="true">Express</span><b>✦</b><span aria-hidden="true">Next.js</span><b>✦</b><span aria-hidden="true">MongoDB</span><b>✦</b><span aria-hidden="true">MySQL</span><b>✦</b><span aria-hidden="true">WordPress</span><b>✦</b><span aria-hidden="true">JavaScript</span><b>✦</b>
+          </div>
+        </div>
+        <div class="tape tape--ink" aria-hidden="true">
+          <div class="tape__inner tape__inner--reverse">
+            <span>Web Development</span><b>—</b><span>API Development</span><b>—</b><span>Backend Systems</span><b>—</b><span>Deployment &amp; Hosting</span><b>—</b>
+            <span>Web Development</span><b>—</b><span>API Development</span><b>—</b><span>Backend Systems</span><b>—</b><span>Deployment &amp; Hosting</span><b>—</b>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== About ===== -->
+      <section class="section about" id="about">
+        <div class="section__head">
+          <span class="label">(01) — Introduction</span>
+          <h2 class="section__title" data-split>About <em>me</em></h2>
+        </div>
+
+        <p class="about__statement" data-words>
+          I'm Ahemad Raza Bakali, a full stack web developer with a passion for creating beautiful and functional websites. I build responsive, user-friendly interfaces and the robust systems behind them, and I'm constantly learning to stay up to date with the latest web trends and technologies.
+        </p>
+
+        <div class="about__grid">
+          <figure class="about__photo">
+            <div class="about__photo-frame">
+              <img src="./images/opt/about.webp" alt="Portrait of Ahemad Bakali" width="1000" height="1000" loading="lazy" />
+            </div>
+            <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+              <defs><path id="badgePath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+              <circle cx="100" cy="100" r="99" class="badge__bg" />
+              <text><textPath href="#badgePath">FULL STACK DEVELOPER • BASED IN AHMEDABAD • </textPath></text>
+              <path class="badge__icon" d="M86 84 70 100l16 16M114 84l16 16-16 16M106 76l-12 48" />
+            </svg>
+            <figcaption class="mono">Ahmedabad, India</figcaption>
+          </figure>
+
+          <div class="about__info">
+            <div class="stats">
+              <div class="stat"><span class="stat__num" data-count="14">14</span><span class="stat__label">Projects shipped</span></div>
+              <div class="stat"><span class="stat__num" data-count="9">9</span><span class="stat__label">Full stack apps</span></div>
+              <div class="stat"><span class="stat__num" data-count="5">5</span><span class="stat__label">Live client sites</span></div>
+            </div>
+
+            <ul class="cards">
+              <li class="card" data-spotlight>
+                <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" /></svg>
+                <h3>Languages</h3>
+                <p>HTML, CSS, JavaScript, Node.js, Express.js, React, Laravel, Next.js, WordPress</p>
+              </li>
+              <li class="card" data-spotlight>
+                <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9 12 4l10 5-10 5L2 9Z" /><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6" /></svg>
+                <h3>Education</h3>
+                <p>BCA — Bachelor of Computer Applications</p>
+              </li>
+              <li class="card" data-spotlight>
+                <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v13H3zM8 7V4h8v3" /><path d="M3 12h18" /></svg>
+                <h3>Projects</h3>
+                <p>Built some amazing projects — <a href="#work" class="link">see the work</a></p>
+              </li>
+            </ul>
+
+            <div class="tools">
+              <span class="label">Tools I use</span>
+              <ul class="tools__list">
+                <li data-tip="VS Code"><img src="./images/vscode.png" alt="VS Code" width="28" height="28" /></li>
+                <li data-tip="MongoDB"><img src="./images/mongodb.png" alt="MongoDB" width="28" height="28" /></li>
+                <li data-tip="Figma"><img src="./images/figma.png" alt="Figma" width="28" height="28" /></li>
+                <li data-tip="Git"><img src="./images/git.png" alt="Git" width="28" height="28" /></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Services ===== -->
+      <section class="section services" id="services">
+        <div class="section__head section__head--split">
+          <div>
+            <span class="label">(02) — What I offer</span>
+            <h2 class="section__title" data-split>My <em>services</em></h2>
+          </div>
+          <p class="section__intro" data-reveal>From the first pixel to the production server, here's how I can help bring your idea to life.</p>
+        </div>
+
+        <ol class="services__list">
+          <li class="service" data-reveal>
+            <span class="service__num mono">01</span>
+            <h3 class="service__title">Web Development</h3>
+            <div class="service__body">
+              <p>Creating and maintaining fast, responsive websites and web applications that people love to use.</p>
+              <ul class="tags"><li>HTML &amp; CSS</li><li>JavaScript</li><li>React</li><li>Next.js</li><li>WordPress</li></ul>
+            </div>
+            <svg class="service__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+          </li>
+          <li class="service" data-reveal>
+            <span class="service__num mono">02</span>
+            <h3 class="service__title">API Development</h3>
+            <div class="service__body">
+              <p>Designing and building secure, scalable REST and GraphQL APIs for seamless integration between services.</p>
+              <ul class="tags"><li>REST</li><li>GraphQL</li><li>Node.js</li><li>Express</li></ul>
+            </div>
+            <svg class="service__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+          </li>
+          <li class="service" data-reveal>
+            <span class="service__num mono">03</span>
+            <h3 class="service__title">Backend Development</h3>
+            <div class="service__body">
+              <p>Robust backend systems built with Laravel and Node.js, backed by databases like MySQL and MongoDB.</p>
+              <ul class="tags"><li>Laravel</li><li>Node.js</li><li>MySQL</li><li>MongoDB</li></ul>
+            </div>
+            <svg class="service__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+          </li>
+          <li class="service" data-reveal>
+            <span class="service__num mono">04</span>
+            <h3 class="service__title">Deployment &amp; Hosting</h3>
+            <div class="service__body">
+              <p>Deploying full stack apps on platforms like Vercel, Netlify and DigitalOcean, with CI/CD pipelines that keep shipping smooth.</p>
+              <ul class="tags"><li>Vercel</li><li>Netlify</li><li>DigitalOcean</li><li>CI/CD</li></ul>
+            </div>
+            <svg class="service__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ===== Work ===== -->
+      <section class="work" id="work">
+        <div class="work__pin">
+          <div class="work__track">
+            <div class="work__intro">
+              <span class="label">(03) — My portfolio</span>
+              <h2 class="section__title" data-split>Selected <em>builds</em></h2>
+              <p>A collection of my latest projects that showcase my skills and experience as a web developer.</p>
+              <span class="work__hint mono">Keep scrolling <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" /></svg></span>
+            </div>
+
+            <!-- To add a project: copy one <article class="project"> block, then change the link, image, title and category. -->
+            <article class="project">
+              <a href="https://edemy-frontend-khaki.vercel.app" target="_blank" rel="noopener" class="project__link" data-cursor="view">
+                <div class="project__media project__media--center"><img src="./images/opt/edemy.webp" alt="Edemy learning management system" width="1400" height="1400" loading="lazy" /></div>
+                <div class="project__info">
+                  <span class="project__index mono">01</span>
+                  <div><h3 class="project__title">Edemy LMS</h3><p class="project__cat">EdTech · Learning platform</p></div>
+                  <span class="project__go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+                </div>
+              </a>
+            </article>
+            <article class="project">
+              <a href="https://quick-ai-frontend-drab.vercel.app" target="_blank" rel="noopener" class="project__link" data-cursor="view">
+                <div class="project__media"><img src="./images/opt/quickai.webp" alt="QuickAI dashboard showing AI generated images" width="1400" height="665" loading="lazy" /></div>
+                <div class="project__info">
+                  <span class="project__index mono">02</span>
+                  <div><h3 class="project__title">QuickAI</h3><p class="project__cat">AI · Your AI assistant</p></div>
+                  <span class="project__go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+                </div>
+              </a>
+            </article>
+            <article class="project">
+              <a href="https://quick-show-frontend-eta.vercel.app" target="_blank" rel="noopener" class="project__link" data-cursor="view">
+                <div class="project__media"><img src="./images/opt/quickshow.webp" alt="QuickShow movie ticket booking homepage" width="1400" height="670" loading="lazy" /></div>
+                <div class="project__info">
+                  <span class="project__index mono">03</span>
+                  <div><h3 class="project__title">QuickShow</h3><p class="project__cat">Booking · Movie tickets</p></div>
+                  <span class="project__go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+                </div>
+              </a>
+            </article>
+            <article class="project">
+              <a href="https://music-academy-nextjs-kdrd.vercel.app" target="_blank" rel="noopener" class="project__link" data-cursor="view">
+                <div class="project__media"><img src="./images/opt/music-academy.webp" alt="Music Academy courses page" width="1351" height="637" loading="lazy" /></div>
+                <div class="project__info">
+                  <span class="project__index mono">04</span>
+                  <div><h3 class="project__title">Music Academy</h3><p class="project__cat">Next.js · School</p></div>
+                  <span class="project__go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+                </div>
+              </a>
+            </article>
+            <article class="project">
+              <a href="https://next-js-ecommerce-khaki.vercel.app" target="_blank" rel="noopener" class="project__link" data-cursor="view">
+                <div class="project__media project__media--center"><img src="./images/opt/next-ecommerce.webp" alt="Next.js e-commerce store on a laptop" width="1400" height="933" loading="lazy" /></div>
+                <div class="project__info">
+                  <span class="project__index mono">05</span>
+                  <div><h3 class="project__title">Next.js Store</h3><p class="project__cat">Next.js · E-commerce</p></div>
+                  <span class="project__go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+                </div>
+              </a>
+            </article>
+            <article class="project">
+              <a href="https://pure-wear.vercel.app" target="_blank" rel="noopener" class="project__link" data-cursor="view">
+                <div class="project__media project__media--left"><img src="./images/opt/purewear.webp" alt="Pure Wear fashion store homepage" width="1352" height="526" loading="lazy" /></div>
+                <div class="project__info">
+                  <span class="project__index mono">06</span>
+                  <div><h3 class="project__title">Pure Wear</h3><p class="project__cat">E-commerce · Fashion</p></div>
+                  <span class="project__go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+                </div>
+              </a>
+            </article>
+            <article class="project">
+              <a href="https://chat-app-frontend-six-phi.vercel.app" target="_blank" rel="noopener" class="project__link" data-cursor="view">
+                <div class="project__media project__media--center"><img src="./images/opt/chat-app.webp" alt="Real-time chat app illustration" width="1400" height="1399" loading="lazy" /></div>
+                <div class="project__info">
+                  <span class="project__index mono">07</span>
+                  <div><h3 class="project__title">Chat App</h3><p class="project__cat">Real-time · Messaging</p></div>
+                  <span class="project__go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+                </div>
+              </a>
+            </article>
+            <article class="project">
+              <a href="https://site-builder-5eq9.vercel.app" target="_blank" rel="noopener" class="project__link" data-cursor="view">
+                <div class="project__media"><img src="./images/opt/site-builder.webp" alt="AI Site Builder landing page" width="1400" height="639" loading="lazy" /></div>
+                <div class="project__info">
+                  <span class="project__index mono">08</span>
+                  <div><h3 class="project__title">Site Builder</h3><p class="project__cat">AI · Website generator</p></div>
+                  <span class="project__go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+                </div>
+              </a>
+            </article>
+            <article class="project">
+              <a href="https://award-site-nine.vercel.app" target="_blank" rel="noopener" class="project__link" data-cursor="view">
+                <div class="project__media project__media--center"><img src="./images/opt/award-site.webp" alt="Awards nominations stage" width="1400" height="788" loading="lazy" /></div>
+                <div class="project__info">
+                  <span class="project__index mono">09</span>
+                  <div><h3 class="project__title">Award Site</h3><p class="project__cat">React · Motion</p></div>
+                  <span class="project__go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+                </div>
+              </a>
+            </article>
+
+            <a href="#contact" class="work__end" data-cursor="link">
+              <span class="label">Next up</span>
+              <span class="work__end-title">Your project <em>could be next</em></span>
+              <span class="work__end-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+            </a>
+          </div>
+
+          <div class="work__progress" aria-hidden="true"><span class="mono">Selected builds</span><div class="work__bar"><i></i></div><span class="mono"><b id="workIndex">01</b> / 09</span></div>
+        </div>
+
+        <!-- Client websites -->
+        <div class="clients section">
+          <div class="section__head section__head--split">
+            <div>
+              <span class="label">Live in production</span>
+              <h2 class="section__title section__title--md" data-split>Client <em>websites</em></h2>
+            </div>
+            <p class="section__intro" data-reveal>Real businesses, real traffic. WordPress sites I've designed and delivered for clients.</p>
+          </div>
+          <ul class="clients__list">
+            <li data-reveal><a href="https://sipnbite.in" target="_blank" rel="noopener" data-preview="0" data-cursor="view"><span class="client__num mono">01</span><span class="client__name">Sipnbite</span><span class="client__type mono">WordPress · Beverages</span><img class="client__thumb" src="./images/opt/sipnbite.webp" alt="" loading="lazy" /><svg class="client__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></a></li>
+            <li data-reveal><a href="https://thetreehouseahmedabad.in" target="_blank" rel="noopener" data-preview="1" data-cursor="view"><span class="client__num mono">02</span><span class="client__name">The Tree House</span><span class="client__type mono">WordPress · Preschool</span><img class="client__thumb" src="./images/opt/treehouse.webp" alt="" loading="lazy" /><svg class="client__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></a></li>
+            <li data-reveal><a href="https://rocagressurfaces.com" target="_blank" rel="noopener" data-preview="2" data-cursor="view"><span class="client__num mono">03</span><span class="client__name">Rocagres Surfaces</span><span class="client__type mono">WordPress · Surfaces</span><img class="client__thumb" src="./images/opt/rocagres.webp" alt="" loading="lazy" /><svg class="client__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></a></li>
+            <li data-reveal><a href="https://levoxinfotech.com" target="_blank" rel="noopener" data-preview="3" data-cursor="view"><span class="client__num mono">04</span><span class="client__name">Levox Infotech</span><span class="client__type mono">WordPress · IT services</span><img class="client__thumb" src="./images/opt/levox.webp" alt="" loading="lazy" /><svg class="client__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></a></li>
+            <li data-reveal><a href="https://cumincosmetics.com" target="_blank" rel="noopener" data-preview="4" data-cursor="view"><span class="client__num mono">05</span><span class="client__name">Cumin Cosmetics</span><span class="client__type mono">WordPress · Personal care</span><img class="client__thumb" src="./images/opt/cumin.webp" alt="" loading="lazy" /><svg class="client__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></a></li>
+          </ul>
+        </div>
+
+        <!-- Floating preview that follows the cursor over the client list -->
+        <div class="preview" aria-hidden="true">
+          <img src="./images/opt/sipnbite.webp" alt="" loading="lazy" />
+          <img src="./images/opt/treehouse.webp" alt="" loading="lazy" />
+          <img src="./images/opt/rocagres.webp" alt="" loading="lazy" />
+          <img src="./images/opt/levox.webp" alt="" loading="lazy" />
+          <img src="./images/opt/cumin.webp" alt="" loading="lazy" />
+        </div>
+      </section>
+
+      <!-- ===== Contact ===== -->
+      <section class="section contact" id="contact">
+        <div class="contact__head">
+          <span class="label">(04) — Connect with me</span>
+          <h2 class="contact__title" data-split>Let's create something <em>amazing</em> together</h2>
+        </div>
+
+        <div class="contact__grid">
+          <div class="contact__info" data-reveal>
+            <p>I'd love to hear from you! Whether you have a question, a collaboration opportunity, or just want to say hello, don't hesitate to get in touch.</p>
+            <button type="button" class="contact__email" id="copyEmail" data-email="ahemadbakali26@gmail.com" data-cursor="link">
+              <span class="mono">Email — click to copy</span>
+              <span class="contact__email-addr">ahemadbakali26@gmail.com</span>
+            </button>
+            <ul class="socials">
+              <li><a href="https://www.instagram.com/its_ahemad_02" target="_blank" rel="noopener" data-magnetic="0.4">Instagram</a></li>
+              <li><a href="https://github.com/ahemad02?tab=repositories" target="_blank" rel="noopener" data-magnetic="0.4">GitHub</a></li>
+              <li><a href="https://x.com/ahemad_bakali" target="_blank" rel="noopener" data-magnetic="0.4">Twitter</a></li>
+            </ul>
+          </div>
+
+          <form action="https://api.web3forms.com/submit" method="POST" class="form" id="contactForm" data-reveal>
+            <input type="hidden" name="access_key" value="e00d5877-8d52-4c41-88d8-a5b244471a98" />
+            <input type="hidden" name="subject" value="New message from your portfolio" />
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+
+            <div class="form__row">
+              <div class="field">
+                <input id="f-name" type="text" name="name" placeholder=" " required autocomplete="name" />
+                <label for="f-name">Your name</label>
+              </div>
+              <div class="field">
+                <input id="f-email" type="email" name="email" placeholder=" " required autocomplete="email" />
+                <label for="f-email">Your email</label>
+              </div>
+            </div>
+            <div class="field">
+              <textarea id="f-msg" name="message" rows="5" placeholder=" " required></textarea>
+              <label for="f-msg">Tell me about your project</label>
+            </div>
+            <div class="form__foot">
+              <button type="submit" class="btn btn--accent btn--big" data-magnetic="0.25">
+                <span class="btn__label">Submit now</span>
+                <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </button>
+              <p class="form__status mono" id="formStatus" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+      <div class="footer__big-wrap">
+        <div class="footer__big" id="footerBig" aria-hidden="true">Ahemad Bakali</div>
       </div>
-    </div>
-
-    <!-- ---contact--- -->
-
-    <div
-      id="contact"
-      class="w-full px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none"
-    >
-      <h4 class="text-center mb-2 text-lg">Conenct With Me</h4>
-      <h2 class="text-center text-5xl">Get In Touch</h2>
-      <p class="text-center max-w-2xl mx-auto mt-5 mb-12">
-        I'd love to hear from you! Whether you have a question, a collaboration
-        opportunity, or just want to say hello, don't hesitate to get in touch
-        with me. Let's connect and create something amazing together!
-      </p>
-
-      <form
-        action="https://api.web3forms.com/submit"
-        class="max-w-2xl mx-auto"
-        method="POST"
-      >
-        <input
-          type="hidden"
-          name="access_key"
-          value="e00d5877-8d52-4c41-88d8-a5b244471a98"
-        />
-
-        <div
-          class="grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-6 mt-10 mb-8"
-        >
-          <input
-            type="text"
-            placeholder="Your Name"
-            class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
-            required
-            name="name"
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
-            required
-            name="email"
-          />
-        </div>
-        <textarea
-          rows="6"
-          placeholder="Your Message"
-          class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90"
-          required
-          name="message"
-        ></textarea>
-        <button
-          class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 cursor-pointer dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover"
-        >
-          Submit Now <img src="./images/right-arrow-white.png" class="w-4" />
-        </button>
-      </form>
-    </div>
-
-    <!-- ---footer--- -->
-    <div class="mt-20">
-      <div class="text-center">
-        <img
-          src="./images/light-logo.png"
-          alt=""
-          class="w-36 mx-auto mb-2 dark:hidden"
-        />
-        <img
-          src="./images/dark-logo.png"
-          alt=""
-          class="w-36 mx-auto mb-2 hidden dark:block"
-        />
-        <div class="w-max flex items-center gap-2 mx-auto">
-          <img src="./images/mail_icon.png" alt="" class="w-6 dark:hidden" />
-          <img
-            src="./images/mail_icon_dark.png"
-            alt=""
-            class="w-6 hidden dark:block"
-          />
-          ahemadbakali26@gmail.com
-        </div>
-      </div>
-      <div
-        class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6"
-      >
-        <p>© 2025 ARB. All Rights Reserved</p>
-        <ul class="flex item-center gap-10 justify-center mt-4 sm:mt-0">
-          <li>
-            <a href="https://www.instagram.com/its_ahemad_02" target="_blank"
-              >Instagram</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://github.com/ahemad02?tab=repositories"
-              target="_blank"
-              >Github</a
-            >
-          </li>
-          <li>
-            <a href="https://x.com/ahemad_bakali" target="_blank">Twitter</a>
-          </li>
+      <div class="footer__bar">
+        <p>© <span data-year>2025</span> ARB. All Rights Reserved</p>
+        <p class="mono footer__time">Local time — <time id="clock2">--:--</time> IST</p>
+        <ul class="footer__links">
+          <li><a href="https://www.instagram.com/its_ahemad_02" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://github.com/ahemad02?tab=repositories" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://x.com/ahemad_bakali" target="_blank" rel="noopener">Twitter</a></li>
+          <li><a href="#top" class="to-top">Back to top ↑</a></li>
         </ul>
       </div>
-    </div>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="./assets/portrait-data.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
